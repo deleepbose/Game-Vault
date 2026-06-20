@@ -1,0 +1,173 @@
+/* Game Vault frontend styles. Hand-written, no framework. */
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: #0f1115;
+    color: #e6e9ef;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.shell {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.player-picker {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #8b93a3;
+}
+
+select {
+    background: #21252f;
+    color: #e6e9ef;
+    border: 1px solid #2d3340;
+    padding: 0.35rem 0.6rem;
+    border-radius: 4px;
+    font: inherit;
+}
+
+.gold-badge {
+    background: #1a1d24;
+    color: #d4a64a;
+    font-weight: 600;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    font-variant-numeric: tabular-nums;
+}
+
+.tabs {
+    display: flex;
+    gap: 1.5rem;
+    border-bottom: 1px solid #2d3340;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.tabs a {
+    color: #8b93a3;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.tabs a.active { color: #e6e9ef; }
+
+.tab-pane.hidden, .banner.hidden { display: none; }
+
+.filter-row {
+    margin-bottom: 1rem;
+    color: #8b93a3;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.card {
+    background: #21252f;
+    border: 1px solid #2d3340;
+    border-radius: 4px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.card .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+button {
+    font: inherit;
+    background: #d4a64a;
+    color: #0f1115;
+    border: none;
+    padding: 0.45rem 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover:not(:disabled) { background: #e6b85b; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.rarity {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.rarity.common    { color: #9aa3b2; }
+.rarity.uncommon  { color: #4ac87a; }
+.rarity.rare      { color: #4a9ac8; }
+.rarity.legendary { color: #d4884a; }
+
+.muted { color: #8b93a3; }
+
+.banner {
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+.banner.error   { background: rgba(200, 74, 74, 0.15);  border: 1px solid #c84a4a; color: #c84a4a; }
+.banner.success { background: rgba(74, 200, 122, 0.15); border: 1px solid #4ac87a; color: #4ac87a; }
+
+table.inv {
+    width: 100%;
+    border-collapse: collapse;
+    background: #21252f;
+    border: 1px solid #2d3340;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+table.inv th, table.inv td {
+    text-align: left;
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid #2d3340;
+}
+
+table.inv th {
+    color: #8b93a3;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+table.inv tr:last-child td { border-bottom: none; }
+
+table.inv .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}

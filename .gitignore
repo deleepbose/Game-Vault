@@ -1,0 +1,5 @@
+# nothing to ignore really, but good practice
+*.log
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Game Vault</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="shell">
+
+    <header class="topbar">
+        <h1>Game Vault</h1>
+        <div class="player-picker">
+            Player:
+            <select id="playerSelect">
+                <option value="1">alice (id 1)</option>
+                <option value="2">bran (id 2)</option>
+                <option value="3">cael (id 3)</option>
+            </select>
+            <span class="gold-badge" id="goldBadge">&hellip; gold</span>
+        </div>
+    </header>
+
+    <nav class="tabs">
+        <a href="#shop" data-tab="shop" class="active">Shop</a>
+        <a href="#inventory" data-tab="inventory">Inventory</a>
+    </nav>
+
+    <div id="banner" class="banner hidden"></div>
+
+    <section id="tab-shop" class="tab-pane">
+        <div class="filter-row">
+            <label>Filter:
+                <select id="typeFilter">
+                    <option value="">All types</option>
+                    <option value="weapon">Weapons</option>
+                    <option value="armour">Armour</option>
+                    <option value="consumable">Consumables</option>
+                </select>
+            </label>
+        </div>
+        <div id="itemGrid" class="grid"></div>
+    </section>
+
+    <section id="tab-inventory" class="tab-pane hidden">
+        <div id="invList"></div>
+    </section>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
