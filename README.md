@@ -1,12 +1,8 @@
 # Game Vault
 
-A small PHP REST API and jQuery frontend for a game shop and inventory. Written as a code sample for a senior PHP role.
+This system functions as an in-game shop and inventory system developed in PHP 8 with a jQuery frontend, a REST API backend with PDO & MySQL database. Players have a gold balance, the shop lists items with prices, and clicking 'Buy' deducts gold from the player and adds the item to their inventory. This generates a fresh UUID and sends it as a key header which is stored with a SHA-256 hash of the request body and the captured response. If the same request arrives a second time (a retry after a dropped connection), the backend returns the original response and does not run the purchase again. A reused key with a different body is rejected as 409. The purchase itself runs inside a database transaction with a FOR UPDATE row lock on the player, so two concurrent purchases for the same player won't both pass the gold check and double-spend.
 
-The piece worth looking at first is the idempotent purchase endpoint, split between [`lib/shop.php`](lib/shop.php) (the transactional purchase function) and [`api/purchase.php`](api/purchase.php) (the HTTP layer that handles the Idempotency-Key header). Both are short.
-
-Players buy items, gold is deducted, items land in the inventory. The purchase endpoint is idempotent so a retried request never double-charges the player.
-
-Plain PHP 8, PDO, MySQL. No Composer, no npm, no build step. Open it, import the schema, run XAMPP.
+Most of the logic lives in two files. lib/shop.php is the purchase function: transaction, row lock, gold deduction, inventory upsert. api/purchase.php is the HTTP layer: it reads the Idempotency-Key header, checks for a replay, calls the purchase function, captures and stores the response. About 200 lines between them.
 
 ## Screenshots
 
