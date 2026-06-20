@@ -1,4 +1,4 @@
-# game-vault
+# Game Vault
 
 A small PHP REST API and jQuery frontend for a game shop and inventory. Written as a code sample for a senior PHP role.
 
